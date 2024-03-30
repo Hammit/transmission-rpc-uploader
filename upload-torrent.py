@@ -18,7 +18,12 @@ torrent_filename = sys.argv[1]
 
 load_dotenv()
 
-client = Client(host=os.getenv('HOST'), port=int(os.getenv('PORT')), username=os.getenv('USERNAME'), password=os.getenv('PASSWORD'))
+client = Client(
+    host=os.getenv('HOST'),
+    port=int(os.getenv('PORT')),
+    username=os.getenv('USERNAME'),
+    password=os.getenv('PASSWORD')
+)
 with open(torrent_filename, "rb") as f:
     client.add_torrent(f)
 
