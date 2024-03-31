@@ -18,7 +18,10 @@ if len(sys.argv) == 1:
 torrent_filename = sys.argv[1]
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename=f'{os.path.basename(__file__)}.log', level=logging.INFO)
+script_dir = sys.path[0]
+script_filename = os.path.basename(__file__)
+log_filename = f'{os.path.splitext(script_filename)}.log'
+logging.basicConfig(filename=f'{script_dir}/{log_filename}', level=logging.INFO)
 
 logger.info('Loading environment variables from .env')
 load_dotenv()
