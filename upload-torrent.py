@@ -1,5 +1,3 @@
-#!/home/byron/src/transmission-rpc-uploader/venv/bin/python3
-#
 # venv/bin/python3 upload-torrent.py /path/to/filename.torrent
 
 import logging
