@@ -2,4 +2,5 @@
 *.torrent
 venv/
 .venv/
+*.log
 
