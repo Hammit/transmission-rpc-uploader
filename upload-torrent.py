@@ -8,6 +8,9 @@ from dotenv import load_dotenv
 from transmission_rpc import Client
 
 
+DEFAULT_TRANSMISSION_PORT = 9091
+
+
 if len(sys.argv) == 1:
     print('missing argument: torrentfile')
     print('upload-torrent.py <torrentfile>')
@@ -26,8 +29,8 @@ logger.info('Loading environment variables from .env')
 load_dotenv()
 
 client = Client(
-    host=os.getenv('HOST'),
-    port=int(os.getenv('PORT')),
+    host=os.getenv('HOST', ''),
+    port=int(os.getenv('PORT', DEFAULT_TRANSMISSION_PORT)),
     username=os.getenv('USERNAME'),
     password=os.getenv('PASSWORD')
 )
