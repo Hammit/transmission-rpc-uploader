@@ -12,6 +12,7 @@ from transmission_rpc import Client
 DEFAULT_TRANSMISSION_PORT = 9091
 
 
+# Process command-line args
 parser = argparse.ArgumentParser(description='Upload a torrent file to a remote Transmission daemon via RPC')
 parser.add_argument('torrentfile', type=str, help='the torrent file to upload')
 args = parser.parse_args()
