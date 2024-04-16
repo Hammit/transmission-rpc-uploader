@@ -1,5 +1,6 @@
 # venv/bin/python3 upload-torrent.py /path/to/filename.torrent
 
+import argparse
 import logging
 import os
 import sys
@@ -11,12 +12,12 @@ from transmission_rpc import Client
 DEFAULT_TRANSMISSION_PORT = 9091
 
 
-if len(sys.argv) == 1:
-    print('missing argument: torrentfile')
-    print('upload-torrent.py <torrentfile>')
-    sys.exit(1)
+# Process command-line args
+parser = argparse.ArgumentParser(description='Upload a torrent file to a remote Transmission daemon via RPC')
+parser.add_argument('torrentfile', type=str, help='the torrent file to upload')
+args = parser.parse_args()
 
-torrent_filename = sys.argv[1]
+torrent_filename = args.torrentfile
 
 # Setup logging
 logger = logging.getLogger(__name__)
