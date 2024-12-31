@@ -27,5 +27,5 @@ The relevant config options are as below, however, don't forget the rest of the 
     upload-command = <fullpath_to_project>/venv/bin/python3
     upload-args = <fullpath_to_project>/upload-torrent.py "$(TorrentPathName)"
 
-`fullpath_to_project` could be `/home/byron/src/transmission-rpc-uploader` for example
+`fullpath_to_project` could be `/home/Hammit/src/transmission-rpc-uploader` for example
 
