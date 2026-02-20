@@ -3,6 +3,7 @@
 import argparse
 import logging
 import os
+import pathlib
 import sys
 
 from dotenv import load_dotenv
@@ -21,11 +22,11 @@ torrent_filename = args.torrentfile
 
 # Setup logging
 logger = logging.getLogger(__name__)
-script_dir = sys.path[0]
-script_filename = os.path.basename(__file__)
-script_basename = os.path.splitext(script_filename)[0]
+script_path = pathlib.Path(__file__).resolve()
+script_dir = script_path.parent
+script_basename = script_path.stem
 log_filename = f'{script_basename}.log'
-logging.basicConfig(filename=f'{script_dir}/{log_filename}', level=logging.INFO)
+logging.basicConfig(filename=script_path / log_filename, level=logging.INFO)
 
 # Load config/secrets
 logger.info('Loading environment variables from .env')
