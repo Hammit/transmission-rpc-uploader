@@ -4,7 +4,6 @@ import argparse
 import logging
 import os
 import pathlib
-import sys
 
 from dotenv import load_dotenv
 from transmission_rpc import Client
